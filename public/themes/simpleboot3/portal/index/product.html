@@ -1,0 +1,502 @@
+<include file="public@head"/>   
+<style>
+#city3 .city3{
+	style:none;
+}
+#city3 .show{
+	style:block;
+}
+</style> 
+</head>
+<body>
+<include file="public@header"/> 
+ 
+<include file="public@nav"/> 
+<include file="public@banner"/> 
+<div class="w12">
+    <div class="pro-title">
+        <ul class="pro-tit-list">
+            <li class="pro-tit-cur">1.基本信息</li>
+            <li>2.选择类型</li>
+            <li>3.账号信息</li>
+            <li>4.付款方式</li>
+            <li>5.支付反馈</li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <form action="{:url('portal/index/order_do3')}" method="post" id="form_order">
+        <div class="pro-box1 pro-box" id="ass">
+            <div class="pro-box1-l">
+                <div class="pro-input">
+                    <span><span>*&nbsp;&nbsp;&nbsp;</span>所在地区</span>
+                   <div class="super_long">
+                       <div id="super_citys">
+                            <div class="provinces">
+                                <input class="input1" type="hidden" value="0" name="city1">
+                                <input class="input2" type="hidden" value="0" name="city1_name">
+                                <div>请选择省份</div>
+                                <ul class="shadow_ul">
+                                    <li><input type="hidden" value="0"><span>请选择省份</span></li>
+                                </ul>
+                            </div>
+                            <div class="city">
+                                <input class="input1" type="hidden" value="0" name="city2">
+                                <input class="input2" type="hidden" value="0" name="city2_name">
+                                <div>请选择城市</div>
+                                <ul>
+                                    <li><input type="hidden" value="0"><span>请选择城市</span></li>
+                                </ul>
+                            </div>
+                            <div class="area">
+                                <input class="input1" type="hidden" value="0" name="city3">
+                                <input class="input2" type="hidden" value="0" name="city3_name">
+                                <div>请选择地区</div>
+                                <ul>
+                                    <li><input type="hidden" value="0"><span>请选择地区</span></li>
+                                </ul>
+                            </div>
+                        </div>
+				   </div>
+                </div>
+                <div class="pro-input">
+                    <span><span>*&nbsp;&nbsp;&nbsp;</span><label for="name_sy">申请人姓名</label></span>
+                    <input id="name_sy" class="gy_ss_y" type="text" name="uname" placeholder="">
+                </div>
+                <div class="pro-input">
+                    <span><span>*&nbsp;&nbsp;&nbsp;</span><label for="phone_sy">联系手机</label></span>
+                    <input id="phone_sy" class="gy_ss_gg" type="text" name="tel" placeholder="">
+                </div>
+                <div class="pro-input">
+                    <span><span>*&nbsp;&nbsp;&nbsp;</span><label for="QQ_sssy">QQ号码</label></span>
+                    <input id="QQ_sssy" class="gy_t_i" type="text" name="qq" placeholder="">
+                </div>
+                <div class="pro-input">
+                    <span><span>*&nbsp;&nbsp;&nbsp;</span><label for="email_sssy">常用邮箱</label></span>
+                    <input id="email_sssy" class="gy_suyty" type="text" name="email" placeholder="">
+                </div>
+                <div class="pro-text1">
+                    <p>请正确填写信息，避免无法正常接收服务信息</p>
+                    <p>
+                        <input id="gsy1" class="gy_sio" type="checkbox"><label for="gsy1">我已阅读并同意和遵守</label><a href="{:url('portal/about/protocol')}" style="color:#f00;">《本站服务协议》</a>
+                    </p>
+                   
+				</div>
+				<a href="javascript:void(0)" class="pro-next guyuan_sgh" id="pro-first">下一步</a>
+				<div class="online_xs">
+						<p class="gh_k_h">申请须知</p>
+						<p class="hji_o_p">
+							<span class="red_sst_g">提交申请后</span>
+							：
+							<span class="lamo_s">我们会在工作日12小时内联系您,您也可以联系我们客服。遇到的任何问题,我们有专业售后团队给你解决,申请前请您认真阅读服务协议，提交申请后则代表您同意本服务协议。 </span>
+						</p>
+						<p class="hji_o_p">
+							<span class="red_sst_g">基础营销功能</span>
+							：
+							<span class="lamo_s">群发功能、粉丝管理、微信自动回复（文字、语音、图文）、客服功能、自定义导航菜单、微信留言板、微信投票、微信抽奖功能、微信刮刮卡、会员卡、优惠券等活动功能。 </span>
+						</p>
+						<p class="hji_o_p">
+							<span class="red_sst_g">营销推广功能</span>
+							：
+							<span class="lamo_s">微网站、H5活动营销、推广海报。 </span>
+						</p>
+						<p class="hji_o_p">
+							<span class="red_sst_g">营销电商功能</span>
+							：
+							<span class="lamo_s">分销商城、微众筹、一元夺宝、拼团购、秒杀、拍卖等电商交易功能。</span>
+						</p>
+						<p class="hji_o_p">
+							<span class="red_sst_g">行业营销应用</span>
+							：
+							<span class="lamo_s">餐饮外卖、酒店、房地产、美容、健身、旅游、KTV、酒吧、婚庆、花店、汽车、教育、医疗、政务、食品、物业、装修、宠物、家政、租赁。</span>
+						</p>
+				</div>
+				<div class="online_ys">
+					<div class="online_cd">
+						<p class="p_s_t_g">联系我们</p>
+						<a href="http://wpa.qq.com/msgrd?v=3&uin={$company.qq.dsc}&site=qq&menu=yes" class="in_blck" target="_blank">
+							<img src="__TMPL__/public/assets/img/TB2vfQij88lpuFjSspaXXXJKpXa_!!2702534210.png" alt="">
+						</a>
+						<div class="ddd_siy">
+							<p class="p_s_t_g_gi">工作时间：周一至周六</p>
+							<p class="p_s_t_g_gi">9:00-12:00   14:00-17:30 </p>
+							<p class="p_s_t_g_gi">（有任何问题请在工作时间内联系） </p>
+							<p class="p_s_t_g_gi">客服电话：400-168-6801 </p>
+						</div>
+						
+					</div>
+				</div>
+            </div>
+            <div class="pro-box-r">
+<!--                <img src="__TMPL__/public/assets/img/pro-1.jpg">-->
+				<div class="shaungxsj_ss">
+					<div class="div1_ss"></div>
+					<div class="txtsy_ss">
+						<p><span>姓名</span>		 <span id="span_text1"></span></p>
+						<p><span>手机号</span>	    <span id="span_text2"></span></p>
+						<p><span>QQ号</span>		 <span id="span_text3"></span></p>
+						<p><span>邮箱</span>	    <span id="span_text4"></span></p>
+					</div>
+				</div>
+            </div>
+            <div class="clear"></div>
+        </div>
+		 
+        <div class="pro-box2 pro-box">
+            <div class="pro-box2-l">
+                <p>请按照公众号类型选择服务，成功后不可更改</p>
+                <div class="pro-box2-l-t1 bugyalu">
+	                <foreach name="cates" item="vo" k="key">
+	                 	<input type="radio" name="gy_s" id="ch{$key}" value="{$vo.id}" <eq name="key" value="0">checked</eq>>
+	                 	<label for="ch{$key}" class="pro-mr1">{$vo.name}</label>
+	                </foreach>
+                  
+                </div>
+                
+				<div style="border-top:1px solid gray">
+ 					<foreach name="services" item="vo" k="key">
+						<div class="show_ss_1" style="display:<eq name='key' value='0'>block<else/>none</eq>">
+							<foreach name="vo" item="vv" > 
+								<div class="pro-box2-l-t1 gy">
+									<input type="radio" name="gy_w" id="chv{$vv.id}" value="{$vv.id}" >
+									<label for="chv{$vv.id}">{$vv.name} </label>
+									<span class="money1">¥{$vv.price}</span>
+									<p>{$vv.dsc}</p>
+								</div>
+							</foreach> 
+						</div>
+					</foreach>
+	 	 		</div>
+	                <div class="ggggy_jui">
+	                    <a href="javascript:void(0)" class="pro-prev sdf_gyh_s" id="pro-second1">上一步</a>
+	                    <a href="javascript:void(0)" class="pro-next sdf_gyh_s" id="pro-second2">下一步</a>
+                </div>
+            </div>
+            <div class="pro-box2-r">
+				<p>个人类型：需要提供注册人身份证</p>
+				<p>企业类型：需提供营业执照（非个体商户）企业对公司银行账户信息和注册人身份证</p>
+				<p>服务好介绍：每个月只能给粉丝群发4次消息（1-8篇）</p>
+				<p>订阅号介绍：每天都可以给粉丝群发送一次消息（1-8篇）</p>
+				<img src="__TMPL__/public/assets/img/pro-1.jpg"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="pro-box3 pro-box">
+             <div class="huluwa" id="app">
+				<div class="aoteman_left">
+					<div class="divs_1">
+						<span class="guyuan"><label for="text_sssgy">账号名称</label></span>
+						<input id="text_sssgy" class="guyuan_syj1" type="text" name="wx_name" v-model="text" placeholder="请输入账号名称" minlength="2" maxlength="16">
+					</div>
+					<div class="divs_2">
+						<span><label for="textarea_sssshu">功能介绍</label></span>
+						<textarea id="textarea_sssshu" class="guyuan_syj2"  v-model="gy" name="wx_dsc" placeholder="4~120个字，介绍此公众号功能与特色" minlength="4" maxlength="120" cols="30" rows="10"></textarea>
+					</div>
+					<div class="divs_3">
+						<span>功能描述</span>
+						<p>  
+							文章推送(文字、语音、视频、图文)、粉丝管理、群发功能、微信自动回复、客服功能、自定义导航菜单。微网站、微表单、微投票、抽奖、	刮刮奖、会员卡、优惠券等营销功能。
+						</p>
+					</div>
+					<div class="divs_4" id="ggh_sgy_s">
+						<a href="javascript:void(0);" id="pro-third1">上一步</a>
+						<a href="javascript:void(0);" id="form_submit">确认订单</a>
+					</div>
+				</div>
+				<div class="dongfangsw_right">
+					<div><img src="__TMPL__/public/assets/img/section129f4d4.png" width="100%" alt=""></div>
+					<p id="gggysr1" class="p1"></p> 
+					<div>
+						<div style="vertical-align: top" class="parent1"><img src="__TMPL__/public/assets/img/sectionwewew.png" height="35px" alt=""></div>
+						<div id="gggysr2" class="parent"></div>
+					</div>
+					<div><img src="__TMPL__/public/assets/img/section229f4d4.png" width="100%" alt=""></div>
+				</div>
+	        </div>
+			
+	        <input type="hidden" id="oid" name="oid" value=""/>
+	   	 </div>
+	</form>
+	
+</div>
+ 
+<include file="public@footer"/>
+ <script src="__TMPL__/public/assets/js/city.js"></script>
+<script>
+	var name_s1=document.getElementById("name_sy");
+  	var span_s1=document.getElementById("span_text1");
+	var name_s2=document.getElementById("phone_sy");
+  	var span_s2=document.getElementById("span_text2");
+	var name_s3=document.getElementById("QQ_sssy");
+  	var span_s3=document.getElementById("span_text3");
+	var name_s4=document.getElementById("email_sssy");
+  	var span_s4=document.getElementById("span_text4");
+	var name_s5=document.getElementById("text_sssgy");
+  	var span_s5=document.getElementById("gggysr1");
+	var name_s6=document.getElementById("textarea_sssshu");
+  	var span_s6=document.getElementById("gggysr2");
+	function data_text(input_s,p_sg){
+		if(document.all){
+			input_s.onpropertychange=function(){
+				p_sg.innerHTML=input_s.value;
+			}
+		}
+	   	else{
+			input_s.oninput=function(){
+				p_sg.innerHTML=input_s.value;
+			}
+	  }
+	}
+	data_text(name_s1,span_s1);
+	data_text(name_s2,span_s2);
+	data_text(name_s3,span_s3);
+	data_text(name_s4,span_s4);
+	data_text(name_s5,span_s5);
+	data_text(name_s6,span_s6);
+</script>
+<script>
+function order_do1(){ 
+	ajax_result=0;
+     var oid=$('#oid').val();
+	 $.ajax({
+         type: 'POST',
+         url: "{:url('portal/index/order_do1')}",
+         dataType: 'json',
+         async:false,
+         data:{'city':quji,'uname':xingming,'tel':shouji,'qq':qqhao,'email':youxiang,'oid':oid},
+         success: function(data){  
+         	if(data.code==1){ 
+         		 
+         		$('#oid').val(data.data.oid);
+         		ajax_result=1;
+         	}else{   
+         		alert(data.msg);  
+         	} 
+         },
+         error: function (event, XMLHttpRequest, ajaxOptions, thrownError) {
+        	 
+        	 alert('服务器连接错误'); 
+         }
+     });
+} 
+function order_do2(){ 
+	ajax_result=0;
+    var oid=$('#oid').val(); 
+	 $.ajax({
+         type: 'POST',
+         url: "{:url('portal/index/order_do2')}",
+         dataType: 'json',
+         async:false,
+         data:{'oid':oid,'service_id':sid},
+         success: function(data){  
+         	if(data.code==1){ 
+         		ajax_result=1;
+         	}else{   
+         		alert(data.msg);  
+         	} 
+         },
+         error: function (event, XMLHttpRequest, ajaxOptions, thrownError) {
+        	  
+        	 alert('服务器连接错误'); 
+         }
+     });
+} 
+	var mingcheng;
+$("#pro-third1").click(function(){
+	$(".pro-box2").show();
+    $(".pro-box3").hide();
+    $(".pro-tit-list li").removeClass("pro-tit-cur");
+    $(".pro-tit-list li:nth-child(2)").addClass("pro-tit-cur");
+});
+ $('#form_submit').click(function(){
+	var hgy=false;
+	var hyg=false;
+	var re5=new RegExp("\\s+");
+	mingcheng=$(".guyuan_syj1").val();
+	var neirong=$(".guyuan_syj2").val();
+	var r=re5.test(mingcheng);
+	var t=re5.test(neirong);
+	if(r){alert("公众号名称不能含有空格！");return}else{hgy=true}
+	if(mingcheng==""){hgy=false;alert("公众号名称必须填写！");return}
+	if(t){alert("产品介绍不能含有空格！");return}else{hyg=true}
+	if(neirong==""){hyg=false;alert("产品介绍必须填写!");return}
+	if(hgy&&hyg){
+	 $('#form_order').submit();
+	}
+ });
+</script>
+//省市级联
+<script>
+    $(function(){
+    //设置子的高度等于显示div的高度；
+    var height=$("#super_citys>div").height();
+    //设置动态生成的li高度等于显示框高度函数；下方动态生成li时调用；
+    function auto_height(){$("#super_citys>div>ul>li").height(height).css("line-height",height+"px");}
+    $("#super_citys>div>div").height(height).css("line-height",height+"px");
+    $("#super_citys>div>ul").css("top",height+"px");
+    var html1;
+    for(var i in city1){
+        html1='<li><input type="hidden" value="'+i+'"><span>'+city1[i]+'</span></li>';
+        $("#super_citys>.provinces>ul").append(html1);
+    }
+    auto_height();
+    //省
+    var sheng,diqu;
+    $("#super_citys>.provinces>ul>li").click(function(){
+        $("#super_citys>.provinces>.input1").val($(this).children("input").val());
+        $("#super_citys>.provinces>.input2").val($(this).children("span").html());
+        $("#super_citys>.provinces>div").html($(this).children("span").html());
+        var html2='<li><input type="hidden" value="0"><span>请选择城市</span></li>';
+        var index_s=$(this).children("input").val();
+        if(sheng!==index_s){
+            $("#super_citys>.city>div").html("请选择城市");
+            $("#super_citys>.city>.input1").val(0);
+            $("#super_citys>.city>.input2").val(0);
+            $("#super_citys>.area>div").html("请选择地区");
+            $("#super_citys>.area>.input1").val(0);
+            $("#super_citys>.area>.input2").val(0);
+            $("#super_citys>.area>ul").html('<li><input type="hidden" value="0"><span>请选择地区</span></li>');
+        }
+        sheng=index_s;
+        if(index_s==0){
+            $("#super_citys>.provinces>.input2").val(0);
+            $("#super_citys>.city>ul").html('<li><input type="hidden" value="0"><span>请选择城市</span></li>');
+            $("#super_citys>.city>.input1").val(0);
+            $("#super_citys>.city>.input2").val(0);
+            $("#super_citys>.area>ul").html('<li><input type="hidden" value="0"><span>请选择地区</span></li>');
+            $("#super_citys>.area>.input1").val(0);
+            $("#super_citys>.area>.input2").val(0);
+            
+        }else{
+            for(var i in city2[index_s]){
+                html2+='<li><input type="hidden" value="'+i+'"><span>'+(city2[index_s])[i]+'</span></li>';
+            }
+            $("#super_citys>.city>ul").html(html2);
+        }
+        auto_height();
+    });
+    //市
+    $("#super_citys>.city>ul").on("click","li",function(){
+        $("#super_citys>.city>.input1").val($(this).children("input").val());
+        $("#super_citys>.city>.input2").val($(this).children("span").html());
+        $("#super_citys>.city>div").html($(this).children("span").html());
+        var html3='<li><input type="hidden" value="0"><span>请选择地区</span></li>';
+        var index_r=$(this).children("input").val();
+        if(diqu!==index_r){
+            $("#super_citys>.area>div").html("请选择地区");
+            $("#super_citys>.area>.input1").val(0);
+            $("#super_citys>.area>.input2").val(0);
+        }
+        diqu=index_r;
+        if(index_r==0){
+            $("#super_citys>.area>ul").html('<li><input type="hidden" value="0"><span>请选择地区</span></li>');
+            $("#super_citys>.city>.input2").val(0);
+            $("#super_citys>.area>.input2").val(0);
+        }else{
+            for(var i in city3[index_r]){
+                html3+='<li><input type="hidden" value="'+i+'"><span>'+(city3[index_r])[i]+'</span></li>'; 
+            }
+            $("#super_citys>.area>ul").html(html3);
+        }
+        auto_height()
+    });
+    //区
+    $("#super_citys>.area>ul").on("click","li",function(){
+        var x_index=$(this).children("input").val();
+        if(x_index==0){
+            $("#super_citys>.area>.input2").val(0);
+        }else{
+            $("#super_citys>.area>.input2").val($(this).children("span").html());
+        }
+        $("#super_citys>.area>.input1").val($(this).children("input").val());
+        $("#super_citys>.area>div").html($(this).children("span").html());
+    });
+    //点击显示框效果
+    var height_shjiu,height_zong,height_li20;
+    function guyuan(element){
+         auto_height();
+        //设置下拉框最多显示10个数据，
+        height_zong=(element.children("ul").children("li").length)*height;
+        height_li20=10*height;
+        if(height_zong>height_li20){
+            height_shjiu=height_li20;
+        }else{
+            height_shjiu=height_zong;
+        }
+        element.children("ul").css({
+            "display":"block",
+            "height":height_shjiu+"px"
+        });
+        element.siblings().children("ul").css({
+            "display":"none",
+            "height":"0px"
+        });
+    }
+    //点击其他元素事件处理
+    $(document).click(function(){
+        $("#super_citys>div>ul").css("display","none");
+        $("#super_citys>div").removeClass("shadow");
+        sheng_is=true;
+        shi_is=true;
+        qu_is=true;
+    });
+    //子点击事件
+    $("#super_citys>div>ul").on("click","li",function(e){
+        e.stopPropagation();
+        $(this).parent().parent().addClass("shadow").siblings().removeClass("shadow");
+        $("#super_citys>div>ul").css("display","none");
+        sheng_is=true;
+        shi_is=true;
+        qu_is=true;
+    });
+    //sheng
+    var sheng_is=true;
+    $("#super_citys>.provinces").click(function(e){
+        if(sheng_is){
+            e.stopPropagation();
+        }
+        $(this).addClass("shadow").siblings().removeClass("shadow");
+        sheng_is=!sheng_is;
+        guyuan($(this));
+        shi_is=true;
+        qu_is=true;
+    });
+    //shi
+    var shi_is=true;
+    $("#super_citys>.city").click(function(e){
+        if(shi_is){
+            e.stopPropagation();
+        }
+        $(this).addClass("shadow").siblings().removeClass("shadow");
+        shi_is=!shi_is;
+        guyuan($(this));
+        sheng_is=true;
+        qu_is=true;
+    });
+    //qu
+    var qu_is=true;
+    $("#super_citys>.area").click(function(e){
+        if(qu_is){
+            e.stopPropagation();
+        }
+        $(this).addClass("shadow").siblings().removeClass("shadow");
+        qu_is=!qu_is;
+        guyuan($(this));
+        sheng_is=true;
+        shi_is=true;
+    });
+    //提交按钮事件
+    $(".btn").click(function(){
+        var sheng=$(".provinces>.input1").val();
+        var shi=$(".city>.input1").val();
+        var qu=$(".area>.input1").val();
+        var sheng_n=$(".provinces>.input2").val();
+        var shi_n=$(".city>.input2").val();
+        var qu_n=$(".area>.input2").val();
+        if(sheng==0){alert("省份不能为空！"); return false}
+        if(shi==0){alert("城市不能为空！"); return false}
+        if(qu==0){alert("地区不能为空！"); return false}
+        alert("您输入的地区代码为："+sheng+"-"+shi+"-"+qu);
+        alert("您输入的地区名为："+sheng_n+"-"+shi_n+"-"+qu_n);
+    });
+});
+
+</script>

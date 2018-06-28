@@ -1,0 +1,79 @@
+<include file="public@head"/>   
+<style type="text/css">
+		html,body{padding:0;margin:0;}
+		.body_s_sssy{
+			padding-top: 30px;
+			width:671px;
+			height:378px;
+			margin: auto;
+			border-radius: 10px;
+			
+		}
+		.body_s_sssy>.erweima_ss_y{
+			width:671px;
+			height:78px;
+			background:url(__TMPL__/public/assets/img/weixin.png) no-repeat 200px 25px;
+			
+		}
+		.body_s_sssy>.erweima_ss_y>p{
+/*			text-indent: 50px;*/
+			line-height: 78px;
+			color:#546A2E;
+			font-size:27px;
+			font-weight: bold;
+			padding:0;
+			margin:0;
+			;
+		}
+		.dingdan_sssy>p{
+/*			text-indent: 50px;*/
+			font-size:20px;
+			padding:15px 0;
+		}
+		.dingdan_sssy>img{
+			width:150px;
+			height:150px;
+			display: block;
+/*			margin-left:50px;*/
+		}
+	</style> 
+</head>
+ 
+<body>
+<include file="public@header"/> 
+ 
+<include file="public@nav"/> 
+ <div class="body_s_sssy">
+		<div class="erweima_ss_y">
+			<p>微信支付确认页面</p>
+		</div>
+		<div class="dingdan_sssy">
+			<p>支付订单号：{$info['oid']}</p>
+			<p>支付金额：￥{$info['money']}</p>
+			 
+			<p id="wxmsg">等待系统确认....</p>
+		</div>
+	</div>
+ 
+<include file="public@footer"/> 
+ 
+<script>
+ 
+var query_url="{:url('portal/pay/orderQuery')}";
+var oid="{$info['order_sn']}";
+var inter=setInterval(weixin,1000);
+function weixin(){
+ 
+	$.post(query_url,{'out_trade_no':oid},function(data){
+//		console.log(data);
+		if(data.code==1){
+			clearInterval(inter);  
+			$('#wxmsg').html('支付结果:'+data.msg);
+			location.href=data.url;
+			
+		}
+	},'json');
+	 
+}
+</script>
+ 

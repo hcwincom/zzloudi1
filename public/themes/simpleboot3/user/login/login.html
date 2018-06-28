@@ -1,0 +1,66 @@
+<include file="public@login_head"/>  
+
+        <div class="box-r">
+            <div class="login-box login-mt1">
+                <form action="" method="" id="form_login">
+                    <div class="login-in input1">
+                        <span>手机号：</span>
+                        <input type="text" name="tel" placeholder="请输入您的手机号">
+                    </div>
+                    <div class="login-in input1">
+                        <span>密码：</span>
+                        <input type="password" name="password" placeholder="请输入密码">
+                    </div>
+                    <div class="login-text">
+                        <a href="{:url('user/register/register')}" class="lfs">立即注册</a>
+                        <a href="{:url('user/login/findPass')}" class="rts">忘记密码</a>
+                    </div>
+                    <div class="login-sub">
+                        <input type="submit" value="立即登录">
+                    </div>
+                    <div class="login-text">
+                       <span style="text-align: center;padding-bottom: 10px;">对支付成功的用户，系统会自动以下单的联系手机注册，用户名和密码都是手机号,所有联系信息默认保存为用户信息
+</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+ </body>
+</html>
+<script>
+$('#form_login').submit(function(){
+	 
+	var password=$.trim($('input[name=password]').val()); 
+	var tel=$.trim($('input[name=tel]').val());
+	if(!is_mobile(tel)){alert("手机号填写错误");return false}
+	if(!is_password(password)){alert("密码错误");return false}
+	$('.login-sub input').prop('disabled','disabled');
+    $('.login-sub input').val('正在登录');
+     
+    $.ajax({
+        type: 'POST',
+        url: "{:url('user/login/ajaxLogin')}",
+        dataType: 'json',
+        data: {'tel':tel,'password':password},
+        success: function(data){ 
+        	if(data.code==1){
+				//返回上一页并刷新
+				self.location=data.url;
+			}else{
+				$('.login-sub input').prop('disabled',false);
+				$('.login-sub input').val('立即登录');
+				alert(data.msg);
+			}
+        },
+        error: function(){
+        	$('.login-sub input').prop('disabled',false);
+            $('.login-sub input').val('立即登录');
+        	alert('服务器连接失败'); 
+        }
+    });
+	return false;
+});
+</script>
+

@@ -1,0 +1,145 @@
+<include file="public@head"/>    
+</head>
+<body>
+<include file="public@header"/> 
+ 
+<include file="public@nav"/> 
+<include file="public@banner"/> 
+
+<div class="main">
+    <div class="main1">
+        <div class="main_title w1">
+            <div class="mt1"></div>
+            <div class="mt2">{$types.about.index}</div>
+            <div class="mt3"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="main_arc">
+           {$about.content}
+        </div>
+    </div>
+     
+    <div class="main2 w12">
+        <div class="main_title w2">
+            <div class="mt1"></div>
+            <div class="mt2">{$types.about.help}</div>
+            <div class="mt3"></div>
+            <div class="clear"></div>
+        </div>
+        <ul class="main2_list">
+        <foreach name="helps" item="vo">
+            <li>
+                <img src="{:cmf_get_image_url($vo.pic)}">
+                <p class="main2_t">{$vo.title}</p>
+                {$vo.content}
+            </li>
+         </foreach>
+             
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="main3">
+        <div class="main_title w3">
+            <div class="mt1"></div>
+            <div class="mt2">{$types.about.pro}</div>
+            <div class="mt3"></div>
+            <div class="clear"></div>
+        </div>
+        <ul class="main3_list">
+         <volist name="pros" id="vo" >
+          
+            <li style="background:url('{:cmf_get_image_url($vo.bg)}') no-repeat center center;">
+                <div class="main3_list_h">
+                    <div class="main3_l1">
+                        <p class="main3_l1_1">{$vo.title}</p>
+                        {$vo.content}
+                    </div>
+                    <div class="main3_l2 <eq name='mod' value='0'>guyuan_ssy</eq>">
+                    <notempty name="vo.pic">
+                        <img src="{:cmf_get_image_url($vo.pic)}">
+                    </notempty>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </li>
+          </volist>
+           
+        </ul>
+    </div>
+    <!-- 行业资讯开始 -->
+    <div class="min_3_4">
+        <div class="main_title w2">
+            <div class="mt1"></div>
+            <div class="mt2">娄底智达，行业资讯</div>
+            <div class="mt3"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="banner_zixun">
+            <div class="banner_div">
+                <ul class="show_shjy">
+                <foreach name="news_pic" item="vo">
+                    <a href="{:url('portal/news/detail',['id'=>$vo.id])}">
+                    <li>
+                        <img src="{:cmf_get_image_url($vo.pic)}" alt="">
+                        <p class="px_1">{$vo.name}</p>
+                        <p class="px_2">{$vo.dsc}</p>
+                    </li>
+                    </a>
+                  </foreach>
+                </ul>
+            </div>
+        </div>
+        <div class="text_tk">
+        <foreach name="news_txt" item="vo">
+            <a href="{:url('portal/news/detail',['id'=>$vo.id])}">
+            <div>
+                <div class="ghj_tfgby">
+                    <span class="sp_hg">{$vo.name}</span>
+                    <span class="sp_hq">发布于{$vo.insert_time|date='Y-m-d',###}</span>
+                    <div style="clear: both"></div>
+                </div>
+                <p class="gth_iop">
+                  {$vo.content}
+                </p>
+            </div>
+            </a>
+           </foreach>
+           
+        </div>
+    </div>
+    <!-- 行业资讯结束 -->
+    <div class="main4">
+        <div class="main_title w2">
+            <div class="mt1"></div>
+            <div class="mt2">{$types.link.pic}</div>
+            <div class="mt3"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="main4-b">
+            <ul class="main4-list w12">
+            <foreach name="links.pic" item="vo">
+                <li><a href="{$vo.url}"><img src="{:cmf_get_image_url($vo.image)}"></a></li>
+            </foreach>
+               
+                <div class="clear"></div>
+            </ul>
+        </div>
+    </div>
+    <div class="main5">
+        <div class="main_title w2">
+            <div class="mt1"></div>
+            <div class="mt2">{$types.link.text}</div>
+            <div class="mt3"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="w12 main5-list">
+        	<foreach name="links.text" item="vo">
+               <a href="{$vo.url}">{$vo.name}</a>
+            </foreach>
+            
+        </div>
+    </div>
+</div>
+ <include file="public@footer" />
+
+ 
