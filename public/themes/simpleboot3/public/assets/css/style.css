@@ -596,13 +596,16 @@ label{cursor:pointer !important;}
 @media screen and (max-width:600px){
     .show_shjy>a>li {
         width: 46.5vw;
-        margin-right:4vw;
+        margin-right:4vw;    
+        height: 50vw;
+    }
+    .show_shjy>a>li>img{
+        height: 100%;
     }
 }
 @media screen and (max-width:414px){
     .show_shjy>a>li {
         width: 100vw;
-    
     }
     .text_tk>a>div {
         width: 100%;
