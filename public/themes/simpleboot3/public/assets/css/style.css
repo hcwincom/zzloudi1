@@ -602,6 +602,8 @@ label{cursor:pointer !important;}
     .show_shjy>a>li>img{
         height: 100%;
     }
+    .main5{margin-top: 20px;}
+    footer{margin-top: 20px;}
 }
 @media screen and (max-width:414px){
     .show_shjy>a>li {
